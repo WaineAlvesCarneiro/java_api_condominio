@@ -8,6 +8,10 @@ Este projeto é a camada de serviços (API) que gerencia todas as informações 
 
 Gerenciamento de Moradores e Unidades: Endpoints para o ciclo de vida completo de moradores e apartamentos.
 
+Ao cadastrar ou editar os dados do morador a API envia um email para o morador.
+
+Validações de campos e ao excluir um imóvel com morador vinculado o sistema exibe uma notificação. 
+
 Autenticação e Autorização: Sistema de segurança utilizando JWT para garantir que apenas usuários autorizados possam acessar a aplicação.
 
 Tecnologias Utilizadas

@@ -2,6 +2,8 @@ package com.wa.condominio.services;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import com.wa.condominio.services.email.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -28,6 +30,9 @@ public class MoradorService {
 
     @Autowired
     private ImovelRepository imovelRepository;
+
+    @Autowired
+    private EmailService emailService;
 
     @Transactional(readOnly = true)
     public Result<List<MoradorDTO>> getAll() {
@@ -75,6 +80,12 @@ public class MoradorService {
         copyDtoToEntity(dto, morador, imovel);
         morador = moradorRepository.save(morador);
 
+        emailService.enviarEmail(
+                morador.getEmail(),
+                "Bem-vindo ao Condomínio - JAVA!",
+                "Olá, **" + morador.getNome() + "**! Seu cadastro foi realizado com sucesso."
+        );
+
         return Result.success(new MoradorDTO(morador, morador.getImovel()), "Morador criado com sucesso.");
     }
 
@@ -87,6 +98,12 @@ public class MoradorService {
 
         copyDtoToEntity(dto, morador, imovel);
         moradorRepository.save(morador);
+
+        emailService.enviarEmail(
+                morador.getEmail(),
+                "Atualização de Cadastro no Condomínio - JAVA",
+                "Olá, **" + morador.getNome() + "**! Seu cadastro foi atualizado com sucesso."
+        );
 
         return Result.success("Morador atualizado com sucesso.");
     }
