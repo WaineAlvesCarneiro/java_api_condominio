@@ -76,7 +76,7 @@ password=postgres
 
 Em seguida execute os scripts disponíveis no projeto condomínio de Backend
 
-https://github.com/WaineAlvesCarneiro/java_api_condominio/tree/master/src/main/java/com/condominio/java_api_condominio/SQL_criar_tabelas_jason
+https://github.com/WaineAlvesCarneiro/java_api_condominio/tree/master/src/main/java/com/wa/condominio/SQL_criar_tabelas_jason
 
 Execução da Aplicação:
 
