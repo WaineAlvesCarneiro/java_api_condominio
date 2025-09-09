@@ -22,6 +22,8 @@ JAVA Versão 21
 
 Spring Boot
 
+Maven
+
 API com Controller (com paginação)
 
 Swagger
