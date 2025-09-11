@@ -13,7 +13,7 @@ public class JwtTokenProvider {
     @Value("${app.jwt.secret:change-me-please-very-long-secret-for-dev-only-change_in_prod}")
     private String jwtSecret;
 
-    @Value("${app.jwt.expiration-ms:3600000}")
+    @Value("${app.jwt.expiration-ms:300000}")
     private long jwtExpirationMs;
 
     private Key key() {
